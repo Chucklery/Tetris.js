@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tetris Game</title> 
+    <link rel="icon" href="./1.png" type="image/x-icon" >
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #game-container {
+            display: flex;
+        }
+        #game-board {
+            width: 300px;
+            height: 600px;
+            border: 2px solid #333;
+            background-color: #fff;
+        }
+        #side-panel {
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        #next-piece {
+            width: 120px;
+            height: 120px;
+            border: 2px solid #333;
+            margin-bottom: 20px;
+        }
+        #score, #level {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-board" width="300" height="600"></canvas>
+        <div id="side-panel">
+            <canvas id="next-piece" width="120" height="120"></canvas>
+            <div id="score">分数: 0</div>
+            <div id="level">等级: 1</div>
+            <button id="start-btn">开始</button>
+            <button id="pause-btn">暂停</button>
+            <button id="restart-btn">重新开始</button>
+        </div>
+    </div>
+    <script src="tetris.js"></script>
+</body>
+</html>
