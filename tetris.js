@@ -20,7 +20,7 @@ class Piece {
     this.color = color
     this.shape = shape
   }
-
+  
   rotate() {
     const m = this.shape.length     //rows  
     const n = this.shape[0].length  //cols
@@ -74,8 +74,8 @@ class Board {
           this.ctx.strokeStyle = 'black';
           this.ctx.strokeRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
         }
-      });
-    });
+      })
+    })
   }
 
   drawPiece(piece) {
@@ -88,14 +88,14 @@ class Board {
           this.ctx.strokeStyle = 'black'
           this.ctx.strokeRect((piece.x + x) * BLOCK_SIZE, (piece.y + y) * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
         }
-      });
-    });
+      })
+    })
   }
 
   drawNextPiece(piece) {
     //绘制下一个方块
     this.nextPieceCtx.clearRect(0, 0, this.nextPieceCtx.canvas.width, this.nextPieceCtx.canvas.height)
-    const scale = 0.8;
+    const scale = 0.8
     const blockSize = BLOCK_SIZE * scale
     const offsetX = (this.nextPieceCtx.canvas.width - piece.shape[0].length * blockSize) / 2
     const offsetY = (this.nextPieceCtx.canvas.height - piece.shape.length * blockSize) / 2
@@ -129,7 +129,6 @@ class Game {
       console.error("Can't find 'next-piece' canvas element")
     }
     this.nextPieceCtx = this.nextPieceCanvas.getContext('2d')
-    
     this.board = null
     this.score = 0
     this.level = 1
@@ -137,7 +136,7 @@ class Game {
     this.gameState = "stopped"
     this.currentPiece = null
     this.nextPiece = null
-
+    
     this.init()
   }
 
@@ -145,12 +144,10 @@ class Game {
     this.board = new Board(this.ctx, this.nextPieceCtx)
     this.currentPiece = Piece.getRandomPiece()
     this.nextPiece = Piece.getRandomPiece()
-
     document.addEventListener('keydown', this.handleKeyPress.bind(this))
     this.startBtn.addEventListener('click', this.startGame.bind(this))
     this.pauseBtn.addEventListener('click', this.togglePause.bind(this))
     this.restartBtn.addEventListener('click', this.restartGame.bind(this))
-
     this.draw()
   }
 
@@ -199,10 +196,10 @@ class Game {
       if (this.checkGameOver()) {
         this.gameState = 'gameover'
         clearInterval(this.gameLoop)
-        alert('Game Over！');
-        return;
+        alert('Game Over！')
+        return
       }
-      this.currentPiece = this.nextPiece;
+      this.currentPiece = this.nextPiece
       this.nextPiece = Piece.getRandomPiece()
     }
     this.draw()
@@ -274,7 +271,6 @@ class Game {
   }
 
   clearLines() {
-
     // let linesCleared = 0
     // for (let y = ROWS - 1; y >= 0; y--) {
     //   if (this.board.gameBoard[y].every(cell => cell > 0)) {
