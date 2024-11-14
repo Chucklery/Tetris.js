@@ -1,1 +1,1 @@
-<h1>"JavaScript+Canvas" Tetris</h1>
+<h1>"JavaScript+Canvas" Tetris MiniGame</h1>
